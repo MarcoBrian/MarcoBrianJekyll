@@ -108,8 +108,8 @@ analytics:
 # Site Author
 author:
   name             : "Marco Brian"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Third Year Computer Science Student at HKU"
+  avatar           : "/images/propic.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Penultimate CS Undergrad"
   location         : "Hong Kong / Indonesia"
   email            :
   links:
@@ -292,3 +292,10 @@ defaults:
       comments: # true
       share: true
       related: true
+    # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
