@@ -1,6 +1,7 @@
 ---
+layout: archive
+permalink : /about/
 title: "About"
-permalink: /about/
-___
+---
 
-I am a third year computer science student studying at HKU.
+Hello I am Marco
