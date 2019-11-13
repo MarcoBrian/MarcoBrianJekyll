@@ -19,8 +19,8 @@ locale                   : "en-US"
 title                    : "Marco Brian"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Marco Brian"
-description              : "Marco Brian's Portfolio"
+name                     : "Your Name"
+description              : "An amazing website."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -107,15 +107,15 @@ analytics:
 
 # Site Author
 author:
-  name             : "Marco Brian"
-  avatar           : "images/propic.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Computer Science Undergraduate"
-  location         : "Hong Kong / Indonesia"
-  email            : "me.widjaja@gmail.com"
+  name             : "Your Name"
+  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "I am an **amazing** person."
+  location         : "Somewhere"
+  email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-       url: mailto:me.widjaja@gmail.com
+      # url: mailto:your.name@email.com
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
@@ -127,10 +127,10 @@ author:
       # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-       url: "https://github.com/MarcoBrian"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-       url: "https://www.linkedin.com/in/marco-brian-widjaja-424017159"
+      # url: "https://github.com/"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      # url: "https://instagram.com/"
 
 # Site Footer
 footer:
@@ -292,11 +292,3 @@ defaults:
       comments: # true
       share: true
       related: true
-   #_pages
-   scope:
-      path: ""
-      type: pages
-    values:
-      layout: single
-      author_profile: true
-   
