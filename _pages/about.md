@@ -8,7 +8,7 @@ header:
 **Welcome to my page!** I am a third-year undergraduate student studying Computer Science at HKU. 
 
 Passion and Interests:
-* Technology and Innovation :iphone: :computer:
-* Music :guitar: :musical_keyboard:
-* Self-Improvement (Reading) :blue_book:
-* Meaningful Work :smile: :briefcase:
+* Technology and Innovation 
+* Music :guitar: 
+* Self-Improvement (Reading) 
+* Meaningful Work 
