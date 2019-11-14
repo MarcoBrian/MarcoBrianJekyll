@@ -9,6 +9,6 @@ header:
 
 Passion and Interests:
 * Technology and Innovation 
-* Music :guitar: 
+* Music  
 * Self-Improvement (Reading) 
 * Meaningful Work 
