@@ -9,6 +9,12 @@ excerpt: "Mandelbrot set"
 [Link to the github repository](https://github.com/MarcoBrian/MandelbrotSet)
 
 compile the code 
-```gcc multiprocess.c -o multiprocess -lSDL2 -lm```
+{% highlight console %}
+gcc multiprocess.c -o multiprocess -lSDL2 -lm
+{% endhighlight %}
+
 run the code 
-```./multiprocess```
+
+{% highlight console %}
+./multiprocess
+{% endhighlight %}
