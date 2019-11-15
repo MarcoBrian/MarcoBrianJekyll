@@ -3,6 +3,8 @@ title: "Calculating the Mandelbrot Set"
 date: 2019-11-14
 tags: [operating systems, multithreading, multiprocessing, Unix]
 excerpt: "Mandelbrot set"
+header:
+  image: "/images/mandelbrot/mandelbrot.png"
 ---
 
 # Mandelbrot Set 
