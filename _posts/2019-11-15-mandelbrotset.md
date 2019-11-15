@@ -10,6 +10,9 @@ header:
 # Mandelbrot Set 
 [Link to the github repository](https://github.com/MarcoBrian/MandelbrotSet)
 
+{% include figure image_path="/images/mandelbrot/mandelbrot.png" alt="mandelbrot set" caption="The mandelbrot set" %}
+
+
 compile the code 
 {% highlight console %}
 gcc multiprocess.c -o multiprocess -lSDL2 -lm
