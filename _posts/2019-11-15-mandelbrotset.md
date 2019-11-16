@@ -94,7 +94,7 @@ All of the child processes made use of the Data pipe to return the results of th
     </ul>
     <li>Terminate all workers</li>
     <li>Draw Image</li>
-<ul>
+</ul>
 
 
 ### Worker process logic
