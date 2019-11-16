@@ -8,7 +8,11 @@ toc_label: "Contents"
 toc_sticky: true
 ---
 
+
+*Disclaimer: This post is for revision and educational purposes only. Anything related to the post that is used to commit potential misuse is not the intention of this post*
+
 # Mandelbrot Set 
+
 [Link to the github repository](https://github.com/MarcoBrian/MandelbrotSet)
 
 
@@ -21,12 +25,15 @@ toc_sticky: true
 
 The purpose of this project is to demonstrate how a computationally intensive application could be executed **faster** by dividing the compuational workload into smaller tasks, and then execute them in parallel. Here in this project we are making use of multi-processing and multi-threading (using only one process) techniques in order to do that. 
 
+*Note: Multiprocessing and multithreading are two different concepts.*
+
+
 We are not going to dive deep into the theory behind the Mandelbrot set but here is a good a [youtube video](https://www.youtube.com/watch?v=NGMRB4O922I) that gives a good idea of what the Mandelbrot Set is.
  
  
 ## The Crux 
  
-The program is trying to compute and draw an 800x800 pixel image. Where each pixel is defined as a point in the complex plane, we  can perform the calculation with a single process and calculate the image from pixel by pixel from top to bottom row by row. But this would take a much longer execution time because we are not making good use of parallel/concurrent execution. 
+The program is trying to compute and draw an 800x800 pixel image. Where each pixel is defined as a point in the complex plane, we  can perform the calculation with a single process and calculate the image from pixel by pixel from top to bottom row by row. But this would take a much longer execution time because we are not making good use of parallel/concurrent execution. Therefore we can try to use multi-processing/multi-threading to perform this task.
 
 We can make use of a multi-processing Boss and Worker model. The parent process (Boss) will create new child processes (Workers) and assign rows of pixels for the child processes to calculate. The child processes will calculate the rows assigned and return the data back to the parent process. These child processes would run parallel (if multiple cores available) and also be run concurrently. The way that the parent and the child processes communicate is that we are going to use Unix pipes for sending the data (we will discuss the structure soon) and using Signals for interprocess communications (reports to Boss that work is done so that Boss can assign more tasks to Worker if there are still tasks left)
 
@@ -65,6 +72,42 @@ We will have to define the signal handlers for both SIGUSR1 and SIGINT in the be
 ## Why do we return the computed results row by row?
 
 All of the child processes made use of the Data pipe to return the results of the blocks of rows. The contents returned from multiple child processes would jumble up together if we return the data in blocks. To prevent this, we have to make use of **atomic guarantee** feature of the pipe. Any data written to the pipe with less than or equal to PIPE_BUF will not get mixed up. In Linux, this value (PIPE_BUF) is 4096 bytes. In our program, each row has 800 pixels, and each pixel is a floating-point number of 4 bytes. So each row is 3200 bytes < 4096 bytes. Therefore the data will not get mixed up.  
+
+## Pseudocode for multi-process program
+
+### Boss process logic
+
+<ul>
+    <li> Install signal handlers (SIGUSR1,SIGINT) </li>
+    <li> Create pipes (Task,Data) </li>
+    <li> Create N workers </li>
+    <li> Distribute initial tasks among workers and send SIGUSR1 signal </li>
+    <ul>
+        <li>while not all results have completed: </li>
+        <ul>
+        <li> read result from Data pipe and store data</li>
+        <li> if result includes worker id and tasks still available</li>
+        <ul>
+            <li>place tasks in Task pipe and send SIGUSR1</li>
+        </ul>
+        </ul>
+    </ul>
+    <li>Terminate all workers</li>
+    <li>Draw Image</li>
+<ul>
+
+
+### Worker process logic
+
+<ul>
+    <li>While True </li>
+    <ul>
+        <li>wait for SIGUSR1 </li>
+        <li>Get task from Task pipe </li>
+        <li>Compute tasks</li>
+        <li>Write results to data pipe</li>
+<ul>
+
 
 
 ## Running the program
