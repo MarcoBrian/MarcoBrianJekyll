@@ -106,7 +106,8 @@ All of the child processes made use of the Data pipe to return the results of th
         <li>Get task from Task pipe </li>
         <li>Compute tasks</li>
         <li>Write results to data pipe</li>
-<ul>
+    </ul>
+</ul>
 
 
 
