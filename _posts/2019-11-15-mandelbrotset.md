@@ -11,9 +11,12 @@ toc_sticky: true
 
 *Disclaimer: This post is for revision and educational purposes only. Anything related to the post that is used to commit potential misuse is not the intention of this post*
 
+*This is a good reference and the one used*
+[Operating Systems Textbook reference](http://pages.cs.wisc.edu/~remzi/OSTEP/)
+
 # Mandelbrot Set 
 
-[Link to the github repository](https://github.com/MarcoBrian/MandelbrotSet)
+[Link to the Github repository](https://github.com/MarcoBrian/MandelbrotSet)
 
 
 <figure>
@@ -31,11 +34,15 @@ The purpose of this project is to demonstrate how a computationally intensive ap
 We are not going to dive deep into the theory behind the Mandelbrot set but here is a good a [youtube video](https://www.youtube.com/watch?v=NGMRB4O922I) that gives a good idea of what the Mandelbrot Set is.
  
  
-## The Crux 
+## The Crux
+
+### Multi-processing program
  
 The program is trying to compute and draw an 800x800 pixel image. Where each pixel is defined as a point in the complex plane, we  can perform the calculation with a single process and calculate the image from pixel by pixel from top to bottom row by row. But this would take a much longer execution time because we are not making good use of parallel/concurrent execution. Therefore we can try to use multi-processing/multi-threading to perform this task.
 
 We can make use of a multi-processing Boss and Worker model. The parent process (Boss) will create new child processes (Workers) and assign rows of pixels for the child processes to calculate. The child processes will calculate the rows assigned and return the data back to the parent process. These child processes would run parallel (if multiple cores available) and also be run concurrently. The way that the parent and the child processes communicate is that we are going to use Unix pipes for sending the data (we will discuss the structure soon) and using Signals for interprocess communications (reports to Boss that work is done so that Boss can assign more tasks to Worker if there are still tasks left)
+
+We will also discuss how we will be able to perform the task by using multi-threading later on.
 
 ## Pipes
 
@@ -130,5 +137,80 @@ The program takes in two parameters:
 {% highlight console %}
 ./multiprocess (number-of-child processes) (number-of-rows-in-a-task)
 {% endhighlight %}
+
+
+
+
+
+## Multi-threaded Process (Part 2)
+
+Now we are going to perform the task using multithreading concept. We are only using one process but we will create multiple threads to perform the computation. So if the concept of threads are a bit hazy you can look at the chapters on Mutex, Conditional Variables and Semaphores chapters from the [textbook reference](http://pages.cs.wisc.edu/~remzi/OSTEP/).
+
+
+## Producer-Consumer Problem (Bound-buffer problem)
+
+We are still going to have a similar design as the multiprocess program. We are having a Boss and Worker model too. The main thread is the Boss and the newly created threads are Workers. The Boss thread will be the one who will assign the tasks and the Worker threads will be taking in the tasks and perform the following computations. 
+
+So the question arises how do we allow the Boss and Worker threads to communicate?
+
+Previously we have used a Linux Pipe for communication in multi-process program, but now we can take advantage of the fact that threads of a process share the same address space. So we can use a dynamically allocated memory (stored in the Heap) which all of the threads can have access to. We will allocate memory call it "task_buffer" where we can have the Boss thread (Producer) store the tasks in that buffer and then the Worker (Consumer) threads will read the task from that buffer. Now because there are multiple threads accessing this shared resource there will be a need for synchronisation between these threads to prevent Race Condition from happening. 
+
+In this example we are using a Producer-Consumer model to solve the synchronisation problem. This is a pretty famous and classic model and you can read up more on the reference provided. Because I think the explanation in the book is very good. So hopefully you've got to understand the model. In my program I used Semaphores because i think it was simple to understand and makes the code more readable. But you can also use Mutex locks and Conditional Variables to achieve the same effect.
+
+## Semaphores
+
+First off we need to set up the initial values of the Semaphores. We have two semaphores, one for the Producer and one for the Consumers. One is named "Empty" and the other is named "Full". The Empty semaphore is used to signal the Producer that there is an empty spot in the buffer to fill and the Full semaphore is used to signal the Consumer that there is a task ready to be consumed. 
+
+So we first initialize the values of the Semaphore. 
+
+### Initialize Semaphore valus
+
+What would be the values of the semaphores?
+
+The Empty semaphore would be initialized to the size of the buffer. Why? Because initially the buffer is empty and therefore the Producer could do sem_wait(&empty), decrement the value of the semaphore and be allowed to put tasks into the buffer (As long as value of Empty is > 0 and after it has acquired the Lock for accessing the Buffer). Afterwards the Producer perform a sem_post(&full) to signal the Consumer there is task ready to be consumed.
+
+The Full semaphore would be initilized to 0. This is because initially before the Producer performs a sem_post(&full) the Consumer should not be allowed to access the Buffer or else there would be an error trying to read off empty tasks. 
+
+## Termination of Threads
+
+After we have all the tasks being produced and consumed. We will finally reach an end and the Producer will have no more tasks to give. At this point we need to tell the threads to stop working while also finish off their last tasks. How will we do this? Again you can try to think of multiple solutions. 
+
+In the program, I made use of the task_buffer as a communication tool to stop the threads. There is an additional attribute in the Task data structure that i added for this reason. Called 'terminate'. 
+
+{% highlight c %}
+typedef struct task {
+    int start_row;
+    int num_of_rows;
+    int terminate; 
+} TASK;
+{% endhighlight %}
+
+After all tasks have been placed into the buffer by the Producer. We assign new additional N tasks - (N is the number of workers). In these N tasks we assign the terminate value to 1. The worker threads will have to check whether the terminate value is set to 1. If it is set to 1 , then the worker will stop and terminate. 
+
+
+
+## Compile the C program
+
+{% highlight console %}
+gcc multithread.c -o multithread -lSDL2 -lm -pthread
+{% endhighlight %}
+
+## Run the executable
+The program takes in three parameters: 
+1. The number of worker threads
+2. The number of rows to compute for 1 tasks. 
+3. Size of buffer
+
+{% highlight console %}
+./multithread (number-of-worker threads) (number-of-rows-in-a-task) (buffer size)
+{% endhighlight %}
+
+
+
+
+
+
+
+
 
 
