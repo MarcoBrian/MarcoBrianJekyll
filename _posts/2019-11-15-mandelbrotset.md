@@ -5,7 +5,7 @@ tags: [operating systems, multithreading, multiprocessing, Unix]
 excerpt: "Mandelbrot set"
 toc: true
 toc_label: "Contents"
-toc_sticky: true
+toc_sticky: false
 ---
 
 
