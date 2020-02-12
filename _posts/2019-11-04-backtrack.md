@@ -45,9 +45,6 @@ In this stage, we implemented the authentication and authorization for users. In
 
 <figure>
   <img src="/images/backtrack/Capture-1.JPG" alt="create-project">
-</figure>
-
-<figure>
   <img src="/images/backtrack/Capture-2.JPG" alt="create-project-2">
   <figcaption> Add developers and manager to project </figcaption>
 </figure>
