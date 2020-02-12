@@ -65,7 +65,7 @@ In this stage, we implemented the authentication and authorization for users. In
 <figure>
   <img src="/images/backtrack/Capture-3.JPG" alt="create-sprint">
   <figcaption> Create sprint once product backlog has been populated </figcaption>
-</figure
+</figure>
     
 <figure>
   <img src="/images/backtrack/Capture-6.JPG" alt="create-sprint-2">
