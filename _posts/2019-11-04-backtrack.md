@@ -47,15 +47,12 @@ In this stage, we implemented the authentication and authorization for users. In
   <img src="/images/backtrack/Capture-1.JPG" alt="create-project">
 </figure>
 
-
 <figure>
   <img src="/images/backtrack/Capture-2.JPG" alt="create-project-2">
   <figcaption> Add developers and manager to project </figcaption>
 </figure>
 
-
 **Step 3** Populate Product Backlog
-
 
 <figure>
   <img src="/images/backtrack/Capture-4.JPG" alt="PBI">
@@ -65,8 +62,6 @@ In this stage, we implemented the authentication and authorization for users. In
   <img src="/images/backtrack/Capture-5.JPG" alt="PBI-2">
   <figcaption> Add product backlog items (PBIs) to the project's product backlog </figcaption>
 </figure>
-
-
 
 **Step 4** Create Sprint
 
@@ -87,12 +82,10 @@ In this stage, we implemented the authentication and authorization for users. In
   <figcaption> Another developer has taken ownership for a task from the PBI and therefore it cannot be selected anymore </figcaption>
 </figure>
 
-
 <figure>
   <img src="/images/backtrack/Capture-9.JPG" alt="task-developer-2">
   <figcaption> You took ownership for a task and then you can update the status for the current task (ongoing/completed) </figcaption>
 </figure>
-
 
 <figure>
   <img src="/images/backtrack/Capture-10.JPG" alt="task-developer-3">
@@ -105,7 +98,6 @@ In this stage, we implemented the authentication and authorization for users. In
   <img src="/images/backtrack/Capture-12.JPG" alt="manager">
   <figcaption> The manager can view the product backlog for the project and monitor the status </figcaption>
 </figure>
-
 
 **Download links**
 
