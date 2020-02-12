@@ -18,7 +18,7 @@ You can find the Django class diagram [here](https://marcobrian.github.io/assets
 ## Inception Phase
 In the beginning we had an initial phase for requirements engineering. This was the time where we gathered as much details about the project and gaining domain knowledge. This was when we built our [vision document](https://marcobrian.github.io/assets/backtrack/visiondoc.pdf) and created an idea of what features to build on following Sprints. Asking the right questions at this stage is crucial because we have to understand what it is that we are building, to make sure that we are creating the correct system. 
 
-**Note - ** Review the vision document before going onwards.
+*Note - Review the vision document before going onwards.*
 
 ## Sprint 1
 
