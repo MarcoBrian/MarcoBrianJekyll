@@ -34,14 +34,14 @@ In this stage, we implemented the authentication and authorization for users. In
 
 ## Demos
 
-** Step 1 ** Logging in
+**Step 1** Logging in
 
 <figure>
   <img src="/images/backtrack/login.JPG" alt="login">
   <figcaption> Enter user credentials here to login </figcaption>
 </figure>
 
-** Step 2 ** Create project
+**Step 2** Create project
 
 <figure>
   <img src="/images/backtrack/Capture-1.JPG" alt="create-project">
@@ -54,7 +54,7 @@ In this stage, we implemented the authentication and authorization for users. In
 </figure>
 
 
-** Step 3 ** Populate Product Backlog
+**Step 3** Populate Product Backlog
 
 
 <figure>
@@ -68,7 +68,7 @@ In this stage, we implemented the authentication and authorization for users. In
 
 
 
-** Step 4 ** Create Sprint
+**Step 4** Create Sprint
 
 <figure>
   <img src="/images/backtrack/Capture-3.JPG" alt="create-sprint">
@@ -80,7 +80,7 @@ In this stage, we implemented the authentication and authorization for users. In
   <figcaption> PBI from product backlog is moved to the current sprint, and tasks has been created for the corresponding PBI  </figcaption>
 </figure>
 
-** Step 5 ** Developer choosing tasks
+**Step 5** Developer choosing tasks
 
 <figure>
   <img src="/images/backtrack/Capture-8.JPG" alt="task-developer">
@@ -99,7 +99,7 @@ In this stage, we implemented the authentication and authorization for users. In
   <figcaption> Completed a task </figcaption>
 </figure>
 
-** Step 6 ** Manager view
+**Step 6** Manager view
 
 <figure>
   <img src="/images/backtrack/Capture-12.JPG" alt="manager">
