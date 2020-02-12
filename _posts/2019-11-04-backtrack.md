@@ -45,54 +45,54 @@ In this stage, we implemented the authentication and authorization for users. In
 
 <figure>
   <img src="/images/backtrack/Capture-1.JPG" alt="create-project">
-  <img src="/images/backtrack/Capture-2.JPG" alt="create-project-2">
+  <img src="/images/backtrack/Capture2.JPG" alt="create-project-2">
   <figcaption> Add developers and manager to project </figcaption>
 </figure>
 
 **Step 3** Populate Product Backlog
 
 <figure>
-  <img src="/images/backtrack/Capture-4.JPG" alt="PBI">
+  <img src="/images/backtrack/Capture4.JPG" alt="PBI">
 </figure>
 
 <figure>
-  <img src="/images/backtrack/Capture-5.JPG" alt="PBI-2">
+  <img src="/images/backtrack/Capture5.JPG" alt="PBI-2">
   <figcaption> Add product backlog items (PBIs) to the project's product backlog </figcaption>
 </figure>
 
 **Step 4** Create Sprint
 
 <figure>
-  <img src="/images/backtrack/Capture-3.JPG" alt="create-sprint">
+  <img src="/images/backtrack/Capture3.JPG" alt="create-sprint">
   <figcaption> Create sprint once product backlog has been populated </figcaption>
 </figure>
     
 <figure>
-  <img src="/images/backtrack/Capture-6.JPG" alt="create-sprint-2">
+  <img src="/images/backtrack/Capture6.JPG" alt="create-sprint-2">
   <figcaption> PBI from product backlog is moved to the current sprint, and tasks has been created for the corresponding PBI  </figcaption>
 </figure>
 
 **Step 5** Developer choosing tasks
 
 <figure>
-  <img src="/images/backtrack/Capture-8.JPG" alt="task-developer">
+  <img src="/images/backtrack/Capture8.JPG" alt="task-developer">
   <figcaption> Another developer has taken ownership for a task from the PBI and therefore it cannot be selected anymore </figcaption>
 </figure>
 
 <figure>
-  <img src="/images/backtrack/Capture-9.JPG" alt="task-developer-2">
+  <img src="/images/backtrack/Capture9.JPG" alt="task-developer-2">
   <figcaption> You took ownership for a task and then you can update the status for the current task (ongoing/completed) </figcaption>
 </figure>
 
 <figure>
-  <img src="/images/backtrack/Capture-10.JPG" alt="task-developer-3">
+  <img src="/images/backtrack/Capture10.JPG" alt="task-developer-3">
   <figcaption> Completed a task </figcaption>
 </figure>
 
 **Step 6** Manager view
 
 <figure>
-  <img src="/images/backtrack/Capture-12.JPG" alt="manager">
+  <img src="/images/backtrack/Capture12.JPG" alt="manager">
   <figcaption> The manager can view the product backlog for the project and monitor the status </figcaption>
 </figure>
 
